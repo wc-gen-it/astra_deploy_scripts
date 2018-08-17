@@ -1,0 +1,28 @@
+#Packages to be installed - order is important for some cases!!!
+#Handlers performing package post-configuration
+packages:
+  #freeipa:
+  #  pkg_list: [fly-admin-freeipa-client]
+  #  handlers: empty handler
+  #vino-server:
+  #  pkg_list: ['libglib2.0-bin', 'vino']
+  #  handlers:
+  #  - restrict interfaces
+  #  - create vino launcher
+  #vbox:
+  #  pkg_list: ['virtualbox', 'virtualbox-qt']
+  #  handlers: empty handler
+  #wine:
+  #  pkg_list: ['ia32-libs', 'wine']
+  #  handlers: empty handler
+  network_shared_storage:
+    pkg_list: ['cifs-utils', 'libpam-mount']
+    handlers:
+    - edit existing line in pam_mount conf-file
+    - add block-conf to pam_mount conf-file
+    - add network storage address to /etc/hosts
+    - restart network
+  active_directory:
+    pkg_list: ['fly-admin-ad-client', 'winbind']
+    handlers:
+    - ensure winbind domain user/group query is disabled

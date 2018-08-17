@@ -1,0 +1,6 @@
+# Launch initial setup after astra is ready with ssh enabled
+---
+  - hosts: special #the group is to be changed
+    gather_facts: false
+    roles:
+    - { role: base }

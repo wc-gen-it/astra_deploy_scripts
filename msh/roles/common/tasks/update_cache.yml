@@ -1,0 +1,6 @@
+---
+  - block:
+    - name: Updating repository cache
+      become: yes
+      apt:
+        update_cache: yes

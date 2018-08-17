@@ -1,0 +1,26 @@
+ansible_user:
+ansible_user_dir:
+
+shared_storage_ip: 10.6.0.3
+shared_storage_path: SETUP
+domain: GOV74.RU
+
+packages:
+  #freeipa:
+  #  pkg_list: [fly-admin-freeipa-client]
+  #  handlers: empty handler
+  vino-server:
+    pkg_list: ['libglib2.0-bin', 'vino']
+    handlers:
+    - restrict interfaces
+    - create vino launcher
+  #vbox:
+  #  pkg_list: ['virtualbox', 'virtualbox-qt']
+  #  handlers: empty handler
+  #wine:
+  #  pkg_list: ['ia32-libs', 'wine']
+  #  handlers: empty handler
+  active_directory:
+    pkg_list: ['fly-admin-ad-client', 'winbind']
+    handlers:
+    - unset winbind user query from domain

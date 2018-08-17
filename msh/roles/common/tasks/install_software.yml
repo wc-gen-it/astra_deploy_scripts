@@ -1,0 +1,13 @@
+---
+  - block:
+    - name: "Install group: {{title}}"
+      become: yes
+      apt:
+        pkg: "{{ item }}"
+        state: present
+      with_items: "{{outer_item.value['pkg_list']}}"
+      notify: "{{outer_item.value['handlers']}}"
+
+    #- name: triggering package handlers
+    #  command: /bin/true
+    #  notify: "{{outer_item.value['handlers']}}"

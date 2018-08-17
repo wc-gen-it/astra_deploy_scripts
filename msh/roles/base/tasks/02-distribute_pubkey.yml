@@ -1,0 +1,9 @@
+---
+  - block:
+    - name: Add server pubkey to $HOME/.ssh/authorized_keys
+      copy:
+        src: shared/id_rsa.pub
+        dest: ~/.ssh/authorized_keys
+        mode: 0644
+        owner: "{{ansible_user}}"
+        group: "{{ansible_user}}"

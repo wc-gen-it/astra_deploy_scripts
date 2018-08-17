@@ -1,0 +1,5 @@
+#Main task for the base-role
+---
+  - { include: 01-create_ssh_dir.yml }
+  - { include: 02-distribute_pubkey.yml }
+  - { include: 03-change_repo.yml, become: yes }

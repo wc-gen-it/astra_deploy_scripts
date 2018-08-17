@@ -1,0 +1,21 @@
+---
+  - block:
+    - name: edit existing line in pam_mount conf-file
+      become: yes
+      lineinfile:
+        dest: /etc/security/pam_mount.conf.xml
+        state: present
+        line: "{{item.line}}"
+        regexp: "{{item.regexp}}"
+      with_items:
+      - { line: <logout wait="500000" hup="1" term="1" kill="1" />, regexp: '^<logout*'}
+      - { line: <mkmountpoint enable="1" remove="false" />, regexp: '^<mkmountpoint*'}
+
+    - name: add block-conf to pam_mount conf-file
+      become: yes
+      blockinfile:
+        dest: /etc/security/pam_mount.conf.xml
+        block: |
+          <cifsmount>mount.cifs //%(SERVER)/%(VOLUME) %(MNTPT) -o %(OPTIONS)</cifsmount>
+          <volume fstype="cifs" server="{{shared_storage_ip}}" path="{{shared_storage_path}}" mountpoint="~/Общедоступные" options="user=%(USER),rw,setuids,perm,soft,iocharset=utf8,uid=%(USERUID),gid=%(USERGID)" />
+        insertbefore: '</pam_mount>'

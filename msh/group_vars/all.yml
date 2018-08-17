@@ -1,0 +1,9 @@
+#Requisites
+ansible_user: local-admin # to be redefined as a multi-level hash with macs,usernames and shit
+ansible_user_dir: /home/local-admin
+become_method: sudo
+become_user: root
+username_suffix: "@gen.ru"
+local_admin_passwd: Cj.YtHeiHtcCdj!!!
+local_admin_passwd_hint: USSR
+freeipa_admin_user: admin

@@ -1,0 +1,16 @@
+- name: "Registering result: success"
+  lineinfile:
+    path: .awx.dat
+    state: present
+    regexp: '^{{task_name}}=[^\n]*'
+    line: "{{task_name}}=ok"
+  when: result is success
+
+- name: "Registering result: failure"
+  lineinfile:
+    path: .awx.dat
+    state: present
+    regexp: '^{{task_name}}=[^\n]*'
+    line: "{{task_name}}={{result['msg']}}"
+    #line: "{{task_name}}={{result['stderr']}}"
+  when: result is failed

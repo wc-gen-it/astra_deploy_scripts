@@ -1,0 +1,16 @@
+---
+  - block:
+    - name: "Set domain-specific hostname"
+      lineinfile:
+        dest: /etc/hosts
+        state: present
+        regexp: '^127\.0\.1\.1'
+        line: "127.0.1.1\t{{shared_storage_fullname}}\t{{shared_storage_shortname}}"
+
+    - name: add network storage address to /etc/hosts
+      become: yes
+      lineinfile:
+        dest: /etc/hosts
+        state: present
+        line: "{{shared_storage_ip}}\t{{shared_storage_fullname}}\t{{shared_storage_shortname}}"
+        insertafter: '^127.0.1.1*'

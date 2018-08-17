@@ -1,0 +1,3 @@
+---
+become_method: sudo
+dns_server: gov174.test

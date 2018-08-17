@@ -1,0 +1,16 @@
+[Desktop Entry]
+Name=Удаленная Помощь
+Name[ru]=Удаленная Помощь
+GenericName=Система удаленного администрирования
+GenericName[ru]=Система удаленного администрирования
+Type=Application
+NoDisplay=false
+Exec=/usr/lib/vino/vino-server
+Icon=preferences-system-login
+Icon[ru]=preferences-system-login
+Hidden=false
+Path=/usr/lib/vino/vino-server
+Terminal=true
+StartupNotify=false
+Keywords=vino;remote desktop
+Keywords[ru]=вино;удаленный рабочий стол

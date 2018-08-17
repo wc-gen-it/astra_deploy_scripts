@@ -1,0 +1,17 @@
+---
+  - block:
+    - name: 'Comment out existing repository entries'
+      replace:
+        dest: /etc/apt/sources.list
+        regexp: '^deb'
+        replace: '#deb'
+
+    - name: 'Add default repository'
+      blockinfile:
+        dest: /etc/apt/sources.list
+        block: |
+          #deb {{repo_server_protocol}}://{{repo_server_ip}}/smolensk/ smolensk main non-free contrib
+          deb file:///opt/repo smolensk main contrib non-free
+          deb file:///opt/devel smolensk main contrib non-free
+
+      #  echo 'deb http://10.1.151.1/smolensk/ smolensk main non-free contrib' > /etc/apt/sources.list

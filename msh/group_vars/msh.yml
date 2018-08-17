@@ -1,0 +1,17 @@
+#Repository
+repo_server_ip: 10.1.151.1
+repo_server_hostname: example-dc.example-domain.ru
+repo_server_protocol: http
+#PAM-mount
+shared_storage_ip: 10.1.151.253
+shared_storage_path: shara
+shared_storage_fullname: win-ad.gen.ru
+shared_storage_shortname: win-ad #['r-frst', 'mgov74']
+domain: GEN.RU
+
+dns_server_ip: 10.1.151.253
+
+confs:
+  hostname1-l:
+    mac: 08:00:27:3A:4E:79
+    username: "user1{{username_suffix}}"

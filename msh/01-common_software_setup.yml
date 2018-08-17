@@ -1,0 +1,7 @@
+# General script to start software installation
+# with handlers and relative configs
+---
+  - hosts: special
+    gather_facts: false
+    roles:
+    - { role: common }

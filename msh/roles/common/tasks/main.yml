@@ -1,0 +1,15 @@
+# Main task to execute within the role -- common
+# It actually corresponds to software installation ONLY
+# since it is WIP
+---
+  - { import_tasks: update_cache.yml, become: yes }
+
+  - include_tasks: install_software.yml
+    vars:
+      title: "{{outer_item.key}}"
+    with_dict: "{{packages}}"
+    loop_control:
+      loop_var: outer_item
+
+  #- { import_tasks: pam_mount_setup.yml, become: yes }
+  #- { import_tasks: domain_auth.yml, become: yes }
