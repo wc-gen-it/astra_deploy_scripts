@@ -1,3 +1,5 @@
-[workstations]
-astra-se ansible_host=10.1.151.110 ansible_user=user
-astra-ce ansible_host=10.1.151.109 ansible_user=user
+all:
+  hosts:
+    msh:
+      hosts:
+        10.1.151.106
