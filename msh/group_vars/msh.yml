@@ -1,15 +1,16 @@
 #Repository
-repo_server_ip: 10.1.151.1
-repo_server_hostname: example-dc.example-domain.ru
-repo_server_protocol: http
+repo_server_ip: 10.1.151.1 #10.6.0.{1..254}
+repo_server_hostname: example-dc.example-domain.ru #alse-repo.gov174.ru
+repo_server_protocol: http #ftp
 #PAM-mount
-shared_storage_ip: 10.1.151.253
-shared_storage_path: shara
-shared_storage_fullname: win-ad.gen.ru
+shared_storage_ip: 10.1.151.253 #
+shared_storage_path: shara #SETUP
+shared_storage_fullname: win-ad.gen.ru #r-frst.gov174.ru
 shared_storage_shortname: win-ad #['r-frst', 'mgov74']
 domain: GEN.RU
 
-dns_server_ip: 10.1.151.253
+dns_server_ip: 10.1.151.253 #
+dns_server_hostname: some_dns_server
 
 confs:
   hostname1-l:
